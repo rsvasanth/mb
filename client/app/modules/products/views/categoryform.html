@@ -1,0 +1,62 @@
+<!--
+<form name="form">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+      <span ng-show="!ctrl.category.id" translate>Add a new category</span>
+      <span ng-show="ctrl.category.id" translate>Edit category</span>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <formly-form model="ctrl.category" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary btn-success" ng-click="ctrl.submit()" ng-disabled="form.$invalid">
+        Submit
+      </button>
+      <button type="button" class="btn btn-default" ng-click="ctrl.formOptions.resetModel()">Reset</button>
+    </div>
+  </div>
+</form>
+-->
+
+<form class="form-horizontal" ng-submit="submitForm()" >
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Category Name:</label>
+      <div class="col-sm-6">
+        <input   ng-model="category.name"type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Z Category:</label>
+      <div class="col-sm-4">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedZcategory"
+            ng-options="cat as cat.name for cat in zcategory"></select>
+      </div>
+    </div>
+
+    <div class="form-group ">
+     <label class="control-label  col-sm-2 " for="url">
+    Photo
+     </label>
+ <input type="file" photo-file="category.image"  onchange="angular.element(this).scope().previewPhoto(event)"/>
+    </div>
+    <div class=" col-sm-8">
+      <img ng-src="{{photo}}" class="img-rounded"  width="150" height="150" style="margin-bottom:20px">
+
+    </div>
+
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>

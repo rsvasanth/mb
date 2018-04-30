@@ -1,0 +1,49 @@
+{
+  "name": "Shipment",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created": {
+      "type": "date"
+    },
+    "shipping_company": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "items": {
+      "type": [
+        "Order"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "order": {
+      "type": "belongsTo",
+      "model": "order",
+      "foreignKey": "orderId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

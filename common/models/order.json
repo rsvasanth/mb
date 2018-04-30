@@ -1,0 +1,47 @@
+{
+  "name": "Order",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created": {
+      "type": "date"
+    },
+    "description": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "items": {
+      "type": [
+        "Product"
+      ]
+    },
+    "shipment_status": {
+      "type": "boolean"
+    },
+    "payment_type": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
